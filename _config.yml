@@ -1,0 +1,12 @@
+title: 🧬 生命科学AI日报
+description: 每日AI与生命科学交叉领域资讯 | 神经调控 · 代谢干预 · AI医疗
+author: 喵神 & 大仙
+url: "https://fozu-lzwpattern.github.io"
+baseurl: ""
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+timezone: Asia/Shanghai
+markdown: kramdown
+show_excerpts: true
