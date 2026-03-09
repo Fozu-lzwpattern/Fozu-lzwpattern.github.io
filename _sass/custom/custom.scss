@@ -1,103 +1,47 @@
-// ─── 侧边栏收窄 ───
-.side-bar {
-  width: 200px !important;
-  min-width: 200px !important;
-  padding: 1rem 0.75rem !important;
-
-  @media (min-width: 50rem) {
-    width: 200px !important;
-    min-width: 200px !important;
-  }
-
-  @media (min-width: 66rem) {
-    width: 200px !important;
-    min-width: 200px !important;
-  }
-}
-
-// ─── 主内容区左移，占满剩余空间 ───
-.main {
-  margin-left: 200px !important;
-
-  @media (min-width: 50rem) {
-    margin-left: 200px !important;
-  }
-
-  @media (min-width: 66rem) {
-    margin-left: 200px !important;
-  }
-}
-
-// ─── 正文最大宽度放宽 ───
-.main-content-wrap {
-  max-width: 960px !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-}
-
-.main-content {
-  max-width: none !important;
-}
-
-// ─── 侧边栏导航文字紧凑 ───
-.nav-list {
-  font-size: 0.85rem !important;
-  
-  .nav-list-item {
-    padding: 0 !important;
-    margin: 0 !important;
-
-    .nav-list-link {
-      padding: 0.25rem 0.5rem !important;
-    }
-  }
-}
-
-// ─── 侧边栏标题紧凑 ───
+// ─── 侧边栏紧凑化 ───
 .site-title {
-  font-size: 1rem !important;
-  padding: 0.5rem 0.5rem !important;
+  font-size: 0.95rem !important;
 }
 
-// ─── 搜索框紧凑 ───
-.search {
-  padding: 0 0.5rem !important;
-}
+.nav-list {
+  font-size: 0.8rem;
 
-.search-input-wrap {
-  .search-input {
-    font-size: 0.85rem !important;
-    padding: 0.35rem 0.5rem !important;
+  .nav-list-link {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
+}
+
+.search-input {
+  font-size: 0.8rem;
 }
 
 // ─── 正文排版优化 ───
 .main-content {
-  h1 { font-size: 1.75rem !important; }
-  h2 { font-size: 1.4rem !important; }
-  h3 { font-size: 1.15rem !important; }
+  max-width: 54rem;
+
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.35rem; margin-top: 2rem; }
+  h3 { font-size: 1.1rem; }
 
   p, li, td {
-    font-size: 0.95rem !important;
-    line-height: 1.7 !important;
+    font-size: 0.92rem;
+    line-height: 1.7;
   }
 
-  // 表格不溢出
   table {
     display: block;
     overflow-x: auto;
-    max-width: 100%;
+    font-size: 0.85rem;
   }
 
-  // 代码块
   pre {
-    font-size: 0.85rem !important;
+    font-size: 0.82rem;
   }
 
   blockquote {
-    font-size: 0.9rem !important;
-    border-left: 3px solid #7253ed;
-    padding: 0.5rem 1rem;
-    background: #f8f7ff;
+    font-size: 0.88rem;
+    border-left-color: $purple-000;
+    background: rgba($purple-000, 0.03);
   }
 }
