@@ -1,4 +1,4 @@
-// 收窄侧边栏、放宽正文区域
-$nav-width: 12rem !default;
-$nav-width-md: 10rem !default;
-$content-width: 58rem !default;
+// 收窄侧边栏、放宽正文区域（不带 !default 强制覆盖主题变量）
+$nav-width: 12rem;
+$nav-width-md: 10rem;
+$content-width: 58rem;
