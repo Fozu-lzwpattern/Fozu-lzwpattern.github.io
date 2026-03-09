@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦢 雁栖湖7人团建一日游 | 2026.3.15</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2e7d32 0%, #43a047 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.1em; opacity: 0.9; }
+        .header .tags { 
+            margin-top: 15px; 
+            display: flex; 
+            justify-content: center; 
+            gap: 10px; 
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200') center/cover;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            color: white;
+            padding: 40px 30px 20px;
+        }
+        
+        .section { padding: 30px; border-bottom: 1px solid #eee; }
+        .section:last-child { border-bottom: none; }
+        .section-title {
+            font-size: 1.4em;
+            color: #2e7d32;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon { font-size: 1.2em; }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .info-card {
+            background: #f5f5f5;
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .info-card .icon { font-size: 1.5em; }
+        .info-card .label { font-size: 0.85em; color: #666; }
+        .info-card .value { font-size: 1.1em; font-weight: 600; color: #333; }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #43a047, #2e7d32);
+        }
+        .timeline-item {
+            position: relative;
+            padding: 15px 0 25px 25px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 18px;
+            width: 12px;
+            height: 12px;
+            background: #43a047;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #43a047;
+        }
+        .time { font-weight: 600; color: #2e7d32; font-size: 1.1em; }
+        .activity { margin-top: 5px; font-size: 1.05em; }
+        .note { color: #666; font-size: 0.9em; margin-top: 5px; }
+        
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .budget-table th, .budget-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .budget-table th { background: #f5f5f5; color: #333; font-weight: 600; }
+        .budget-table .total { background: #e8f5e9; font-weight: 600; }
+        .budget-table .surplus { color: #43a047; font-weight: 600; }
+        
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .food-card {
+            border: 1px solid #eee;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .food-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        .food-card .info { padding: 12px; }
+        .food-card .name { font-weight: 600; margin-bottom: 5px; }
+        .food-card .desc { font-size: 0.85em; color: #666; }
+        
+        .checklist {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .checklist h4 { margin-bottom: 15px; color: #333; }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+        }
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #43a047;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        
+        .notice {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 15px 0;
+        }
+        .notice-title { font-weight: 600; color: #e65100; margin-bottom: 5px; }
+        
+        .weather {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        .weather-day {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 120px;
+        }
+        .weather-day .day { font-weight: 600; color: #1565c0; }
+        .weather-day .temp { font-size: 1.3em; font-weight: 600; color: #333; }
+        .weather-day .desc { font-size: 0.85em; color: #666; }
+        
+        .footer {
+            background: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        .footer .cta {
+            background: white;
+            color: #2e7d32;
+            padding: 12px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦢 雁栖湖团建一日游</h1>
+            <div class="subtitle">2026年3月15日（周六）· 7人同事团建</div>
+            <div class="tags">
+                <span class="tag">📍 怀柔区</span>
+                <span class="tag">🚗 自驾</span>
+                <span class="tag">💰 人均400元</span>
+                <span class="tag">🦂 虹鳟鱼</span>
+            </div>
+        </div>
+        
+        <div class="hero-image">
+            <div class="hero-overlay">
+                <div style="font-size: 1.5em; font-weight: 600;">7人 · 2车 · 初春</div>
+                <div style="margin-top: 5px;">骑行环湖 + 虹鳟鱼大餐 = 最佳团建</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">📋</span> 行程概览</div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <span class="icon">👥</span>
+                    <div>
+                        <div class="label">人数</div>
+                        <div class="value">7人（2车）</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="icon">🚗</span>
+                    <div>
+                        <div class="label">出发</div>
+                        <div class="value">来广营</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="icon">💰</span>
+                    <div>
+                        <div class="label">预算</div>
+                        <div class="value">人均400元</div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="icon">⏰</span>
+                    <div>
+                        <div class="label">时长</div>
+                        <div class="value">当天往返</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">🗺️</span> 导航地图</div>
+            <div class="map-container">
+                <iframe src="https://www.amap.com/search?query=雁栖湖景区P7停车场" width="100%" height="100%" frameborder="0"></iframe>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <a href="https://apis.map.qq.com/uri/v1/marker?marker=coord:40.383855,116.923603;title:雁栖湖P7停车场&referer=myapp" 
+                   style="color: #2e7d32; text-decoration: none; font-weight: 600;">
+                    📍 点击打开腾讯地图导航 →
+                </a>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">⏱️</span> 时间表</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="time">07:30</div>
+                    <div class="activity">🚗 来广营集合出发</div>
+                    <div class="note">2辆车，建微信群同步位置</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">08:40</div>
+                    <div class="activity">🅿️ 到达雁栖湖P7停车场</div>
+                    <div class="note">约65km，1小时出头</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">09:00-11:00</div>
+                    <div class="activity">🚶 景区游览 + 团队合影</div>
+                    <div class="note">淡季人少，安静拍照</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">11:00-12:30</div>
+                    <div class="activity">🚴 环湖骑行（核心团建！）</div>
+                    <div class="note">淡季特色，租车约60元/h</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">12:30-14:00</div>
+                    <div class="activity">🍽️ 虹鳟鱼大餐</div>
+                    <div class="note">7人包间，人均约115-145元</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">14:00-15:30</div>
+                    <div class="activity">🏔️ 西山步道 / 自由活动</div>
+                    <div class="note">需确认是否开放</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">16:00</div>
+                    <div class="activity">🚗 返程</div>
+                    <div class="note">避开傍晚高峰</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="time">17:15</div>
+                    <div class="activity">🏠 回到来广营</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">💰</span> 预算清单</div>
+            <table class="budget-table">
+                <tr><th>项目</th><th>总价</th><th>人均</th></tr>
+                <tr><td>🎫 门票（20元×7人）</td><td>140元</td><td>20元</td></tr>
+                <tr><td>🅿️ 停车（2车）</td><td>40元</td><td>6元</td></tr>
+                <tr><td>⛽ 油费（2车）</td><td>240元</td><td>34元</td></tr>
+                <tr><td>🛣️ 高速费</td><td>80元</td><td>12元</td></tr>
+                <tr><td>🚴 骑行（7车×1h）</td><td>420元</td><td>60元</td></tr>
+                <tr><td>🍽️ 午餐</td><td>1,000元</td><td>143元</td></tr>
+                <tr><td>🥤 零食</td><td>100元</td><td>14元</td></tr>
+                <tr class="total"><td>💚 合计</td><td>2,020元</td><td>289元</td></tr>
+                <tr><td class="surplus">🎉 富余（可升级）</td><td class="surplus">780元</td><td class="surplus">111元</td></tr>
+            </table>
+            <div class="notice">
+                <div class="notice-title">💡 升级建议</div>
+                <div>富余780元可加：烤全羊(+400)、红螺寺(+378)、围炉煮茶(+200)</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">🍽️</span> 美食推荐</div>
+            <div class="food-grid">
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400" alt="烤虹鳟鱼">
+                    <div class="info">
+                        <div class="name">🐟 炭烤虹鳟鱼</div>
+                        <div class="desc">怀柔灵魂美食 No.1</div>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400" alt="铁锅炖鱼">
+                    <div class="info">
+                        <div class="name">🍲 铁锅炖鲟鱼</div>
+                        <div class="desc">冬春暖胃，7人共享</div>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400" alt="烤全羊">
+                    <div class="info">
+                        <div class="name">🐑 烤全羊</div>
+                        <div class="desc">团建氛围拉满</div>
+                    </div>
+                </div>
+                <div class="food-card">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400" alt="农家菜">
+                    <div class="info">
+                        <div class="name">🥬 农家炖菜</div>
+                        <div class="desc">贴饼子，地道北方味</div>
+                    </div>
+                </div>
+            </div>
+            <div class="notice" style="margin-top: 15px;">
+                <div class="notice-title">📞 餐厅推荐</div>
+                <div><strong>鑫方圆餐厅</strong> — 有包间、停车免费、适合7人<br>
+                地址：怀柔区怀北镇西庄村加油站北边<br>
+                建议提前电话订座</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">🌡️</span> 天气与穿着</div>
+            <div class="weather">
+                <div class="weather-day">
+                    <div class="day">3月15日</div>
+                    <div class="temp">5~15°C</div>
+                    <div class="desc">湖边风大</div>
+                </div>
+            </div>
+            <div class="notice">
+                <div class="notice-title">⚠️ 重要提醒</div>
+                <div>3月中旬温差大，务必<strong>出发前一天查天气预报</strong>！建议穿保暖内衣+抓绒+防风外套。</div>
+            </div>
+            <div style="margin-top: 15px;">
+                <div style="font-weight: 600; margin-bottom: 10px;">📢 建议穿着：</div>
+                <div>🧥 上身：保暖内衣 + 抓绒 + 防风外套（冲锋衣最佳）</div>
+                <div>👖 下身：厚裤子或加绒裤</div>
+                <div>👟 鞋：运动鞋/徒步鞋</div>
+                <div>🧣 配件：围巾、薄手套（骑车手冷）</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">✅</span> 出发前 checklist</div>
+            <div class="checklist">
+                <h4>📅 出发前一周</h4>
+                <div class="checklist-item"><div class="checkbox"></div> 建团建微信群，确认7人</div>
+                <div class="checklist-item"><div class="checkbox"></div> 确认2辆车+司机</div>
+                <div class="checklist-item"><div class="checkbox"></div> 打景区电话确认开放：010-69661696</div>
+                <div class="checklist-item"><div class="checkbox"></div> 电话预约午餐餐厅包间</div>
+                
+                <h4 style="margin-top: 20px;">📅 出发前一天</h4>
+                <div class="checklist-item"><div class="checkbox"></div> 查怀柔天气预报 → 群里通知穿着</div>
+                <div class="checklist-item"><div class="checkbox"></div> 群里发集合时间地点</div>
+                <div class="checklist-item"><div class="checkbox"></div> 确认两辆车乘客分配</div>
+                
+                <h4 style="margin-top: 20px;">📅 当天早上</h4>
+                <div class="checklist-item"><div class="checkbox"></div> 07:15 群里确认出发</div>
+                <div class="checklist-item"><div class="checkbox"></div> 07:30 准时出发</div>
+                <div class="checklist-item"><div class="checkbox"></div> 享受团建 🦢</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-title"><span class="icon">📞</span> 实用电话</div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 10px;">
+                    <div style="font-weight: 600;">雁栖湖景区</div>
+                    <div style="color: #666;">010-69661696</div>
+                </div>
+                <div style="background: #f5f5f5; padding: 15px; border-radius: 10px;">
+                    <div style="font-weight: 600;">景区咨询</div>
+                    <div style="color: #666;">010-69668670</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div style="font-size: 1.5em; margin-bottom: 10px;">🦢</div>
+            <div>7个人，2辆车，初春的雁栖湖</div>
+            <div>骑车绕湖 · 虹鳟鱼大餐 · 山水之间</div>
+            <div class="cta">祝团建愉快！</div>
+        </div>
+    </div>
+</body>
+</html>
