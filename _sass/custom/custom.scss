@@ -1,47 +1,147 @@
-// ─── 侧边栏紧凑化 ───
+// ═══════════════════════════════════════════
+//  博客布局优化 — 左右两栏，比例合理
+// ═══════════════════════════════════════════
+
+// ─── 侧边栏：固定宽度，不随屏幕膨胀 ───
+@media (min-width: 66.5rem) {
+  .side-bar {
+    width: 14.5rem !important;
+    min-width: 14.5rem !important;
+    max-width: 14.5rem !important;
+  }
+  .side-bar + .main {
+    margin-left: 14.5rem !important;
+    max-width: none !important;
+  }
+}
+
+@media (min-width: 50rem) and (max-width: 66.5rem) {
+  .side-bar {
+    width: 12rem !important;
+    min-width: 12rem !important;
+    max-width: 12rem !important;
+  }
+  .side-bar + .main {
+    margin-left: 12rem !important;
+    max-width: none !important;
+  }
+}
+
+// ─── 正文区：充分利用剩余空间 ───
+.main {
+  max-width: none !important;
+}
+
+.main-content-wrap {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+}
+
+// ─── 侧边栏内部紧凑 ───
+.site-nav {
+  padding: 0.5rem 0.75rem;
+}
+
 .site-title {
-  font-size: 0.95rem !important;
+  font-size: 1rem !important;
+  padding-right: 0.5rem;
 }
 
 .nav-list {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
 
-  .nav-list-link {
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
+  .nav-list-item {
+    .nav-list-link {
+      padding: 0.3rem 0.5rem;
+    }
   }
 }
 
 .search-input {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
+  padding: 0.4rem 0.6rem;
 }
 
-// ─── 正文排版优化 ───
+// ─── 正文排版 ───
 .main-content {
-  max-width: 54rem;
-
-  h1 { font-size: 1.75rem; }
-  h2 { font-size: 1.35rem; margin-top: 2rem; }
-  h3 { font-size: 1.1rem; }
-
-  p, li, td {
-    font-size: 0.92rem;
-    line-height: 1.7;
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #eee;
   }
 
+  h2 {
+    font-size: 1.35rem;
+    margin-top: 2.2rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+
+  p, li {
+    font-size: 0.93rem;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  // 表格
   table {
     display: block;
     overflow-x: auto;
     font-size: 0.85rem;
+    border-collapse: collapse;
+    width: 100%;
+
+    th {
+      background: #f8f8fa;
+      font-weight: 600;
+    }
+
+    td, th {
+      padding: 0.45rem 0.75rem;
+      border: 1px solid #e8e8e8;
+    }
   }
 
+  // 代码块
   pre {
-    font-size: 0.82rem;
+    font-size: 0.83rem;
+    border-radius: 6px;
   }
 
-  blockquote {
-    font-size: 0.88rem;
-    border-left-color: $purple-000;
-    background: rgba($purple-000, 0.03);
+  code {
+    font-size: 0.85em;
   }
+
+  // 引用块
+  blockquote {
+    font-size: 0.9rem;
+    border-left: 3px solid #7253ed;
+    background: #faf9ff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    color: #555;
+  }
+
+  // 列表间距
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.2rem;
+  }
+}
+
+// ─── 页脚 ───
+.site-footer {
+  font-size: 0.78rem;
+  color: #999;
 }
