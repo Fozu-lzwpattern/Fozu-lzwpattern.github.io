@@ -1,10 +1,9 @@
 ---
-layout: post
-title: "🏢 PaperClip 深度解读：AI公司的操作系统"
-date: 2026-03-08 20:00:00 +0800
-categories: [AI, Agent, Open Source]
-tags: [PaperClip, Multi-Agent, 开源, 架构分析, AI公司]
+title: "PaperClip深度解读：AI公司的操作系统"
+parent: 专题研究
+nav_order: 3
 ---
+
 
 # PaperClip 深度解读：AI公司的操作系统
 

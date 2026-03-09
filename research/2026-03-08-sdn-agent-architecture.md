@@ -1,10 +1,9 @@
 ---
-layout: post
-title: "🔧 Software-Defined Agent：从SDN看AI Agent架构的本质"
-date: 2026-03-08 18:00:00 +0800
-categories: [AI, Architecture, Agent]
-tags: [SDN, AI Agent, 控制平面, Software-Defined, 架构设计]
+title: "Software-Defined Agent：从SDN看AI Agent架构"
+parent: 专题研究
+nav_order: 2
 ---
+
 
 # Software-Defined Agent：从SDN看AI Agent架构的本质
 

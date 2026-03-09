@@ -1,10 +1,9 @@
 ---
-layout: post
-title: "🚀 AI Agent 时代的营销系统演变：从工具到生命体"
-date: 2026-03-08
-categories: [AI, Marketing, Agent]
-tags: [营销系统, AI Agent, Agentic Commerce, 范式跃迁, 美团]
+title: "AI Agent时代的营销系统演变"
+parent: 专题研究
+nav_order: 1
 ---
+
 
 # AI Agent 时代的营销系统演变：从工具到生命体
 

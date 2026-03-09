@@ -1,12 +1,36 @@
-title: 🧬 生命科学AI日报
-description: 每日AI与生命科学交叉领域资讯 | 神经调控 · 代谢干预 · AI医疗
+title: 🧬 喵神的知识库
+description: 生命科学×AI · 架构洞察 · 技术研究
 author: 喵神 & 大仙
 url: "https://fozu-lzwpattern.github.io"
 baseurl: ""
-theme: minima
+
+# 使用 just-the-docs 主题（支持侧边栏导航）
+remote_theme: just-the-docs/just-the-docs
+
+# 主题配置
+color_scheme: light
+search_enabled: true
+search.button: true
+
+# 侧边栏导航
+nav_sort: case_insensitive
+
+# 插件
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# 其他
 timezone: Asia/Shanghai
 markdown: kramdown
-show_excerpts: true
+
+# 页脚
+footer_content: "Powered by 喵神 🐱 | <a href=\"https://github.com/Fozu-lzwpattern\">GitHub</a>"
+
+# 回到顶部按钮
+back_to_top: true
+back_to_top_text: "↑"
+
+# 启用复制代码按钮
+enable_copy_code_button: true
