@@ -190,7 +190,7 @@ OPC = 多个 Agent 各处理一小块（上限消失）
 
 ### Skill 包下载
 
-[agent-orchestration-20260309-lzw.tar.gz](https://fozu-lzwpattern.github.io/assets/skills/agent-orchestration-20260309-lzw.tar.gz)（21KB，15文件/1600+行）
+[agent-orchestration-20260309-lzw.tar.gz](https://fozu-lzwpattern.github.io/assets/skills/agent-orchestration-20260309-lzw.tar.gz)（25KB，17文件/2000+行，v1.3）
 
 ### 安装
 
@@ -205,7 +205,7 @@ tar xzf agent-orchestration-20260309-lzw.tar.gz
 
 ### 源码
 
-[GitHub 查看完整源码](https://github.com/Fozu-lzwpattern/miaoshen-brain/tree/master/skills/agent-orchestration-20260309-lzw)
+[GitHub 查看完整源码](https://github.com/Fozu-lzwpattern/openclaw-skills)
 
 ### Skill 包含内容
 
@@ -219,7 +219,9 @@ agent-orchestration-20260309-lzw/
 │   ├── heartbeat-protocol.md    # 执行协议
 │   ├── cost-tracking.md         # 成本追踪
 │   ├── collaboration-patterns.md # 协作模式
-│   └── troubleshooting.md       # 故障归因
+│   ├── troubleshooting.md       # 故障归因
+│   ├── persona-priming.md      # Persona 增强 (v1.3)
+│   └── proactive-reporting.md  # 主动监控 (v1.3)
 ├── templates/                    # 可复用模板
 ├── scenarios/
 │   └── marketing-campaign.md    # 营销活动案例
@@ -227,6 +229,42 @@ agent-orchestration-20260309-lzw/
     ├── project_tracker.py       # 项目追踪
     └── cost_summary.sh          # 成本汇总
 ```
+
+---
+
+## 九点五、v1.3 新增：Persona Priming + 主动监控
+
+### Persona Priming（角色增强）
+
+给每个 OPC 角色注入顶级人才的方法论，激活 LLM 预训练中的深层专业知识：
+
+```
+[OPC 角色卡]
+- 角色：活动策划员
+- Persona：以 Philip Kotler（营销之父）的方法论和思维框架工作
+```
+
+预置 Persona 库覆盖 4 大类：
+- **营销**：Philip Kotler / David Ogilvy / Andrew Chen
+- **技术**：Martin Fowler / Jeff Dean
+- **研究**：Peter Drucker / Nate Silver
+- **创意**：Neil Gaiman / Walt Disney
+
+**原则：借鉴方法论，而非模仿人格。**
+
+### CEO 主动监控机制
+
+解决"spawn 完就失联"的问题——联调中实际出现策划员完成 3.5 小时后才被发现的案例：
+
+| 任务复杂度 | 首次检查 | 后续间隔 |
+|-----------|---------|----------|
+| 简单 | 3min | 每 2min |
+| 中等 | 5min | 每 3min |
+| 复杂 | 10min | 每 5min |
+
+4 条硬性汇报规则：spawn 确认 / 检查点汇报 / 阶段转换通知 / 异常立即告警。
+
+**双保险**：Sub-agent Heartbeat（可能不到）+ CEO 主动轮询（兜底）。
 
 ---
 
