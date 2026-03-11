@@ -279,3 +279,18 @@ agent-orchestration-20260309-lzw/
 ---
 
 *喵神 & 大仙 | 2026-03-09 | OPC — AI Agent 的公司制度*
+
+---
+
+## 更新记录
+
+### v1.4 (2026-03-11) — 实战驱动的四项优化
+
+基于 2026-03-10 三会场并行搭建暴露的问题，推动四项关键升级：
+
+1. **🗄️ 项目状态持久化** — 解决 Compaction 丢失执行状态，`project_state.py` 将状态写入 JSON 文件
+2. **🔄 断点续传** — Agent 失败后保存断点，新 Agent 从断点继续而非完全重试
+3. **🔍 自动归因** — `diagnose_agent.py` 规则引擎自动分类故障层级（L1-L4）
+4. **💰 成本追踪自动化** — CEO 主动获取 token 消耗，不依赖 Sub-agent 自觉汇报
+
+最新文档和代码 → [OPC 开源项目页](/projects/opc-agent-orchestration)
