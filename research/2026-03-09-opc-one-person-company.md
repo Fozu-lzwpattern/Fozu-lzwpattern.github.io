@@ -301,7 +301,7 @@ tar xzf agent-orchestration-v1.4.tar.gz
 
 ### 源码
 
-[GitHub — Fozu-lzwpattern/openclaw-skills](https://github.com/Fozu-lzwpattern/openclaw-skills)（含完整版本历史 + Git Tags）
+[GitHub — Fozu-lzwpattern/OPC-agent-orchestration](https://github.com/Fozu-lzwpattern/OPC-agent-orchestration)（含完整版本历史 + Git Tags）
 
 ### v1.4 文件结构
 
