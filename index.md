@@ -19,7 +19,6 @@ nav_order: 1
 | 项目 | 版本 | 说明 |
 |------|------|------|
 | [OPC — One-Person Company](/projects/opc-agent-orchestration) | v1.4 | Multi-Agent 编排，让 AI 成为一人公司的 CEO |
-| [gundam-ops](/projects/gundam-ops) | v2.1 | 高达3.0营销活动智能搭建 |
 
 ---
 
