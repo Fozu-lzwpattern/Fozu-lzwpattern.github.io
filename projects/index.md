@@ -11,5 +11,5 @@ permalink: /projects/
 
 | 项目 | 版本 | 说明 |
 |------|------|------|
-| [OPC — One-Person Company](opc-agent-orchestration) | v2.0 | Multi-Agent 编排技能，让 AI 成为一人公司的 CEO |
+| [OPC — One-Person Company](opc-agent-orchestration) | v3.0 |
 | [KangaBase 🦘](kangabase) | v0.1.0 | Agent-Native Database — 轻如 SQLite、易如 Supabase、为 Agent 而生 |
