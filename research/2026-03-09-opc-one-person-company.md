@@ -8,7 +8,7 @@ nav_order: 5
 
 > One-Person Company — 从 PaperClip 的启发到 OpenClaw 的实现
 >
-> 2026-03-09 创建 · 2026-03-14 更新至 v3.0 | 喵神 & 大仙
+> 2026-03-09 创建 · 2026-03-14 更新至 v3.1 | 喵神 & 大仙
 
 ---
 
@@ -261,7 +261,8 @@ OPC    = 多个 Agent 各处理一小块（上限消失）
 
 | 版本 | 下载 | 说明 |
 |------|------|------|
-| **v3.0**（最新） | [agent-orchestration-v3.0.tar.gz](/assets/skills/agent-orchestration-v3.0.tar.gz) | 三层架构 + Context Intake + 标签体系 v2 |
+| **v3.1**（最新） | [agent-orchestration-v3.1.tar.gz](/assets/skills/agent-orchestration-v3.1.tar.gz) | 用户模型自学习 + 三层架构 + Context Intake |
+| v3.0 | [agent-orchestration-v3.0.tar.gz](/assets/skills/agent-orchestration-v3.0.tar.gz) | 三层架构 + Context Intake + 标签体系 v2 |
 | v2.0 | [agent-orchestration-v2.0.tar.gz](/assets/skills/agent-orchestration-v2.0.tar.gz) | Aware 触发器 + 工具自发现 |
 | v1.4 | [agent-orchestration-v1.4.tar.gz](/assets/skills/agent-orchestration-v1.4.tar.gz) | 状态持久化 + 断点续传 + 自动归因 |
 
@@ -309,7 +310,8 @@ agent-orchestration-20260309-lzw/
 | v1.3 | 2026-03-09 | Persona Priming + CEO 主动监控 | 联调暴露 announce 不可靠 |
 | v1.4 | 2026-03-11 | 状态持久化 + 断点续传 + 自动归因 + 成本自动化 | 三会场实战暴露四项问题 |
 | v2.0 | 2026-03-12 | Aware 触发器 + 运行时工具自发现 + Focus 焦点管理 | Clawith Aware 自治 + KangaBase 实战 |
-| **v3.0** | **2026-03-14** | **三层架构重构 + Context Intake + 工具发现标签体系 v2** | **SKILL.md 过重 + OPC 触发率优化** |
+| v3.0 | 2026-03-14 | 三层架构重构 + Context Intake + 工具发现标签体系 v2 | SKILL.md 过重 + OPC 触发率优化 |
+| **v3.1** | **2026-03-14** | **用户模型自学习：Phase 0 读取 + Phase 4 写回** | **越用越好用越惊喜** |
 
 ---
 
@@ -323,4 +325,4 @@ agent-orchestration-20260309-lzw/
 
 ---
 
-*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-14 更新至 v3.0 | OPC — AI Agent 的公司制度*
+*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-14 更新至 v3.1 | OPC — AI Agent 的公司制度*

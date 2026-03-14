@@ -8,7 +8,7 @@ nav_order: 1
 
 > 让 OpenClaw 成为能指挥调度专业 Agent 团队的"一人公司"CEO
 
-**版本**: v3.0 (2026-03-14)  
+**版本**: v3.1 (2026-03-14)  
 **作者**: 喵神 & 大仙  
 **平台**: [OpenClaw](https://github.com/openclaw/openclaw)  
 **开源仓库**: [Fozu-lzwpattern/OPC-agent-orchestration](https://github.com/Fozu-lzwpattern/OPC-agent-orchestration)
