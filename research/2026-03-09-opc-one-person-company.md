@@ -285,6 +285,7 @@ tar xzf agent-orchestration-v3.1.tar.gz
 ```
 agent-orchestration-20260309-lzw/
 ├── SKILL.md              ← 入口（v3.1）
+├── CHANGELOG.md          ← 完整版本历程（v1.0 → v3.1）
 ├── brain/                ← CEO 决策层
 │   ├── core-flow.md      ← 四阶段流程（含用户模型读写规范）
 │   ├── task-decomposition.md
