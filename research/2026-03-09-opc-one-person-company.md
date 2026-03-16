@@ -18,7 +18,7 @@ nav_order: 5
 
 我们把这个模式叫做 **OPC（One-Person Company）**——一个人 + 一个 AI CEO + 一群 AI 员工 = 一家公司的执行力。
 
-本文记录完整的思考过程、设计决策、实现方案，以及在实战中踩坑后驱动的迭代历程（v1.0 → v3.1）。
+本文记录完整的思考过程、设计决策、实现方案，以及在实战中踩坑后驱动的迭代历程（v1.0 → v3.2）。
 
 ---
 
@@ -291,7 +291,8 @@ OPC    = 多个 Agent 各处理一小块（上限消失）
 
 | 版本 | 下载 | 说明 |
 |------|------|------|
-| **v3.1**（最新） | [agent-orchestration-v3.1.tar.gz](/assets/skills/agent-orchestration-v3.1.tar.gz) | 用户模型自学习 + 三层架构 + Context Intake |
+| **v3.2**（最新） | [agent-orchestration-v3.2.tar.gz](/assets/skills/agent-orchestration-v3.2.tar.gz) | 内置 LZW 顾问 Persona + personas/ 目录 |
+| v3.1 | [agent-orchestration-v3.1.tar.gz](/assets/skills/agent-orchestration-v3.1.tar.gz) | 用户模型自学习 + 三层架构 + Context Intake |
 | v3.0 | [agent-orchestration-v3.0.tar.gz](/assets/skills/agent-orchestration-v3.0.tar.gz) | 三层架构 + Context Intake + 标签体系 v2 |
 | v2.0 | [agent-orchestration-v2.0.tar.gz](/assets/skills/agent-orchestration-v2.0.tar.gz) | Aware 触发器 + 工具自发现 |
 | v1.4 | [agent-orchestration-v1.4.tar.gz](/assets/skills/agent-orchestration-v1.4.tar.gz) | 状态持久化 + 断点续传 + 自动归因 |
@@ -300,14 +301,14 @@ OPC    = 多个 Agent 各处理一小块（上限消失）
 
 ```bash
 cd ~/.openclaw/skills
-tar xzf agent-orchestration-v3.1.tar.gz
+tar xzf agent-orchestration-v3.2.tar.gz
 ```
 
 对 OpenClaw 说"帮我做一个完整的 XX 项目"，会自动触发 OPC 编排流程。
 
 **源码**：[GitHub — Fozu-lzwpattern/OPC-agent-orchestration](https://github.com/Fozu-lzwpattern/OPC-agent-orchestration)
 
-### v3.1 文件结构
+### v3.2 文件结构
 
 ```
 agent-orchestration-20260309-lzw/
