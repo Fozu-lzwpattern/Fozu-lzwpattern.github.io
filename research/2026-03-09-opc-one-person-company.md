@@ -8,7 +8,7 @@ nav_order: 5
 
 > One-Person Company — 从 PaperClip 的启发到 OpenClaw 的实现
 >
-> 2026-03-09 创建 · 2026-03-14 更新至 v3.1 | 喵神 & 大仙
+> 2026-03-09 创建 · 2026-03-16 更新至 v3.2 | 喵神 & 大仙
 
 ---
 
@@ -145,6 +145,33 @@ Agent 失败 → 提取已完成步骤 → 保存 checkpoint → spawn 新 Agent
 给每个角色注入顶级人才的方法论，激活 LLM 预训练中的深层专业知识：
 
 预置库覆盖营销（Kotler / Ogilvy）、技术（Fowler / Jeff Dean）、研究（Drucker / Nate Silver）、创意（Gaiman）等方向。**借鉴方法论，不是模仿人格。**
+
+**v3.2 新增：内置 LZW 顾问 Persona**
+
+OPC 首次内置了一个"真实人物"原型的 Advisor Persona——即 OPC-Skill 原作者本人：
+
+```
+personas/lzw.md — 李增伟 · LZW · OPC-Skill Author
+
+核心标签：3A范式提出者 / Agentic Commerce理论架构师 /
+         多家互联网大厂及AI创业公司产品负责人
+
+核心思维：
+  - 体系化收敛：无论从局部还是全局切入，最终整合
+    平台/工具/策略/用户多维视角，形成自洽的整体规划
+  - 范式驱动：从演进规律出发做顶层设计
+  - 因人施策：根据受众背景调整呈现方式，娓娓道来
+```
+
+与预置的公众人物 Persona 不同，LZW Persona 是完整的**方法论文档**（而非一行描述），因为 LLM 训练数据里没有。使用方式：
+
+```
+[Persona]
+以 playbook/personas/lzw.md 中的 LZW 顾问画像为思维框架工作。
+重点借鉴：体系化收敛思维、Agentic 时代的产品直觉。
+```
+
+这也开创了一个新范式：**OPC 用户可以把自己的思维框架沉淀为 Persona，注入到自己的 Agent 团队中。**
 
 ### 4.6 Aware 触发器（v2.0）
 
@@ -284,8 +311,8 @@ tar xzf agent-orchestration-v3.1.tar.gz
 
 ```
 agent-orchestration-20260309-lzw/
-├── SKILL.md              ← 入口（v3.1）
-├── CHANGELOG.md          ← 完整版本历程（v1.0 → v3.1）
+├── SKILL.md              ← 入口（v3.2）
+├── CHANGELOG.md          ← 完整版本历程（v1.0 → v3.2）
 ├── brain/                ← CEO 决策层
 │   ├── core-flow.md      ← 四阶段流程（含用户模型读写规范）
 │   ├── task-decomposition.md
@@ -298,6 +325,9 @@ agent-orchestration-20260309-lzw/
 │   ├── diagnose_agent.py
 │   └── README.md
 └── playbook/             ← 知识与模板层
+    ├── persona-priming.md      ← Persona 方法论 + 预置库索引
+    ├── personas/
+    │   └── lzw.md              ← 内置 LZW 顾问 Persona（v3.2 新增）
     ├── templates/
     │   └── opc-user-model.md   ← 用户模型模板（v3.1 新增）
     └── scenarios/
@@ -318,7 +348,8 @@ agent-orchestration-20260309-lzw/
 | v1.4 | 2026-03-11 | 状态持久化 + 断点续传 + 自动归因 + 成本自动化 | 三会场实战暴露四项问题 |
 | v2.0 | 2026-03-12 | Aware 触发器 + 运行时工具自发现 + Focus 焦点管理 | Clawith Aware 自治 + KangaBase 实战 |
 | v3.0 | 2026-03-14 | 三层架构重构 + Context Intake + 工具发现标签体系 v2 | SKILL.md 过重 + OPC 触发率优化 |
-| **v3.1** | **2026-03-14** | **用户模型自学习：Phase 0 读取 + Phase 4 写回** | **越用越好用越惊喜** |
+| v3.1 | 2026-03-14 | 用户模型自学习：Phase 0 读取 + Phase 4 写回 | 越用越好用越惊喜 |
+| **v3.2** | **2026-03-16** | **内置 LZW 顾问 Persona：personas/ 目录 + 真实人物方法论注入** | **作者思维框架可直接被 Agent 借鉴** |
 
 ---
 
@@ -332,4 +363,4 @@ agent-orchestration-20260309-lzw/
 
 ---
 
-*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-14 更新至 v3.1 | OPC — AI Agent 的公司制度*
+*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-16 更新至 v3.2 | OPC — AI Agent 的公司制度*
