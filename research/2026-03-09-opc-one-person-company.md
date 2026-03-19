@@ -8,7 +8,7 @@ nav_order: 5
 
 > One-Person Company — 从 PaperClip 的启发到 OpenClaw 的实现
 >
-> 2026-03-09 创建 · 2026-03-19 更新至 v5.2 | 喵神 & 大仙
+> 2026-03-09 创建 · 2026-03-19 更新至 v5.3 | 喵神 & 大仙
 
 ---
 
@@ -18,7 +18,7 @@ nav_order: 5
 
 我们把这个模式叫做 **OPC（One-Person Company）**——一个人 + 一个 AI CEO + 一群 AI 员工 = 一家公司的执行力。
 
-本文记录完整的思考过程、设计决策、实现方案，以及在实战中踩坑后驱动的迭代历程（v1.0 → v5.2）。
+本文记录完整的思考过程、设计决策、实现方案，以及在实战中踩坑后驱动的迭代历程（v1.0 → v5.3）。
 
 ---
 
@@ -332,6 +332,64 @@ critic → 内容质量够格？逻辑严密？（专家）
 两道都通过 → Phase 4 交付包
 ```
 
+### 4.19 gstack 三项借鉴（v5.3 新增）
+
+> gstack 是 Garry Tan（Y Combinator CEO）的开源 Claude Code 技能库，15个专家角色，"一个人的公司"。
+> OPC 分析后提炼三个机制直接落地。
+
+**借鉴 1：问题重构前置（Phase 0 Office Hours）**
+
+gstack 的 `/office-hours` 启发了 OPC Phase 0 的扩展——在规划之前先问清楚"你真正想解决什么"：
+
+```
+Step 1：听痛点，不听功能描述
+  ❌ 用户说"做一个 X" → 直接规划 X
+  ✅ 先问：你遇到了什么具体问题？什么情况下最让你烦？
+
+Step 2：挑战前提假设
+  提出 2-4 条核心假设，逐条让用户确认
+
+Step 3：提供 2-3 个路径 + 工作量估算（S/M/L/XL）
+  推荐最小可行路径
+```
+
+L2/L3 任务必须执行，防止"用户说做 X、CEO 就做 X"而忽略真实需求。
+
+**借鉴 2：`retro` 数据驱动复盘**
+
+OPC 新增 `retro` 命令，聚合历史项目数据：
+
+```bash
+python3 engine/project_state.py retro          # 全量统计
+python3 engine/project_state.py retro --days 7  # 最近 7 天
+```
+
+输出：项目完成率 / 总 token 消耗 / 平均质量评分 / 角色使用频率 / 失败模式
+
+Phase 5 的文字复盘（质性）+ `retro`（量化）= 完整复盘闭环。
+
+**借鉴 3：Iron Law 调试协议**
+
+gstack 的 `/investigate` 有一条铁律：**不调查就不修复**。
+
+OPC `brain/verification.md` 新增：
+
+```
+verify 失败第 1 次 → 精准反馈，要求修复
+verify 失败第 2 次（相同问题）→ 强制根因分析（RCA），不是重试
+verify 失败第 3 次 → 强制用户介入，不再自主绕行
+```
+
+RCA 四问：输入问题？配置问题？期望问题？环境约束？找到根因后才能真正修复。
+
+**gstack vs OPC**
+
+两者是同一理念的不同切角：
+- gstack：专注工程开发 sprint（Claude Code 生态）
+- OPC：通用多领域编排（OpenClaw 生态，覆盖研究/内容/工程）
+
+共同理念：**AI + 结构化角色 = 一个人的公司**
+
 
 ---
 
@@ -440,7 +498,8 @@ OPC    = 多个 Agent 各处理一小块（上限消失）
 
 | 版本 | 下载 | 核心变更 |
 |------|------|---------|
-| **v5.2**（最新） | [agent-orchestration-v5.2.tar.gz](/assets/skills/agent-orchestration-v5.2.tar.gz) | 速启模板×3 + critic铁律 + 任务拆解四问 + task-graph |
+| **v5.3**（最新） | [agent-orchestration-v5.3.tar.gz](/assets/skills/agent-orchestration-v5.3.tar.gz) | gstack借鉴：问题重构+retro数据复盘+Iron Law |
+| v5.2 | [agent-orchestration-v5.2.tar.gz](/assets/skills/agent-orchestration-v5.2.tar.gz) | 速启模板×3 + critic铁律 + 任务拆解四问 + task-graph |
 | v5.0 | [agent-orchestration-v5.0.tar.gz](/assets/skills/agent-orchestration-v5.0.tar.gz) | 角色模板库 + 触发矩阵 + Output Contract + 交付包 + 复盘 |
 | v4.0 | [agent-orchestration-v4.0.tar.gz](/assets/skills/agent-orchestration-v4.0.tar.gz) | CEO 验收 + USER_VOICE + 文件边界 + 冻结唤醒 |
 | v3.2 | [agent-orchestration-v3.2.tar.gz](/assets/skills/agent-orchestration-v3.2.tar.gz) | 内置 LZW 顾问 Persona |
@@ -453,7 +512,7 @@ OPC    = 多个 Agent 各处理一小块（上限消失）
 
 ```bash
 cd ~/.openclaw/skills
-tar xzf agent-orchestration-v5.2.tar.gz
+tar xzf agent-orchestration-v5.3.tar.gz
 ```
 
 对 OpenClaw 说"帮我做一个完整的 XX 项目"，会自动触发 OPC 编排流程。
@@ -464,7 +523,7 @@ tar xzf agent-orchestration-v5.2.tar.gz
 
 ```
 agent-orchestration-20260309-lzw/
-├── SKILL.md              ← 入口（v5.2，含触发分级矩阵+速启模板引用）
+├── SKILL.md              ← 入口（v5.3，含触发分级矩阵+速启模板引用）
 ├── CHANGELOG.md
 ├── brain/                ← CEO 决策层
 │   ├── core-flow.md      ← Phase 4 交付包 + Phase 5 复盘
@@ -521,7 +580,8 @@ agent-orchestration-20260309-lzw/
 3. **Agent 记忆继承**：专业 Agent 积累领域知识，跨项目复用
 4. **复盘驱动优化**：Phase 5 积累足够数据后，自动推荐角色配置改进
 5. **critic 评分历史分析**：识别哪类任务描述容易触发低分，自动优化模板
+6. **retro 趋势图**：token 消耗趋势可视化，识别哪类项目最值得投入
 
 ---
 
-*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-19 更新至 v5.2 | OPC — AI Agent 的公司制度*
+*喵神 & 大仙 | 2026-03-09 创建 · 2026-03-19 更新至 v5.3 | OPC — AI Agent 的公司制度*
