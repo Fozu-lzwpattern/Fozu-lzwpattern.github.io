@@ -9,9 +9,16 @@ nav_order: 1
 
 ## 内容入口
 
-- [📅 生命科学AI日报](/daily/)
-- [🧠 专题研究](/research/)
+- [📅 生命科学AI日报](/daily/) — 每日更新
+- [🧠 专题研究](/research/) — 深度分析与架构研究
+- [🛠️ 开源项目](/projects/) — OpenClaw Skill 开源项目
 - [ℹ️ 关于本站](/about/)
+
+## 开源项目
+
+| 项目 | 版本 | 说明 |
+|------|------|------|
+| [OPC — One-Person Company](/projects/opc-agent-orchestration) | v1.4 | Multi-Agent 编排，让 AI 成为一人公司的 CEO |
 
 ---
 
